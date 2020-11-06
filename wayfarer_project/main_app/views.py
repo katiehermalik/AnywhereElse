@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import authenticate
+from django.db.models import Max
 
 
 # --------------------------------------- AUTH IMPORTS
@@ -34,8 +35,8 @@ def signup(request):
                 new_form.image = request.FILES['image']
             new_form.save()
             login(request, user)
-            mail = send_mail('Welcome to Wayfarer',
-                'Thanks for signing up! Please enjoy the app!',
+            mail = send_mail('Welcome to Anywhere. Else.',
+                'Thanks for signing up! Please enjoy the app! \n \n let\'s go!!!',
                 'sei98.wayfarer.project@gmail.com',
                 [user.email])
             return redirect('profile', user_id=user.id)
@@ -71,9 +72,8 @@ def edit_profile(request, user_id):
     user = request.user.id=user_id
     if user:
         if request.method == 'POST':
-                form = ProfileForm(request.POST, instance = profile)
+                form = ProfileForm(request.POST, request.FILES, instance = profile)
                 if form.is_valid():
-                    profile.image = request.FILES['image']
                     updated_profile=form.save()
                 return redirect('profile', updated_profile.user_id)
         else:
@@ -125,9 +125,9 @@ def travelpost_edit(request, travelpost_id):
     user = request.user.id=travelpost.author.user_id
     if user:
         if request.method == 'POST':
-            form = PostForm(request.POST, instance=travelpost)
+            form = PostForm(request.POST, request.FILES, instance=travelpost)
             if form.is_valid():
-                edit_form = form.save()
+                form.save()
                 return redirect('travelpost_show', travelpost_id)
 
 
@@ -145,16 +145,14 @@ def travelpost_new(request, city_id):
     error_message = ''
     if request.method == 'POST':
         if city_id > 0:
-            form = CityPostForm(request.POST)
+            form = CityPostForm(request.POST, request.FILES)
         else:
-            form = PostForm(request.POST)
+            form = PostForm(request.POST, request.FILES)
         current_user = request.user
         profile = Profile.objects.get(user_id=current_user.id)
 
         if form.is_valid():
             new_form = form.save(commit=False)
-            if request.FILES:
-                new_form.image = request.FILES['image']
             new_form.image = request.FILES['image']
             new_form.author_id = profile.id
             if city_id > 0:
@@ -191,9 +189,21 @@ def travelpost_delete(request, travelpost_id):
 def show_city(request, city_id):
     city = City.objects.get(id=city_id)
     travelposts = TravelPost.objects.filter(city_id=city_id)
+    if travelposts:
+        popular_post = travelposts.order_by('-likes')[0]
+        city_image = popular_post.image
+    else:
+        city_image = city.image
     context = {
         'city': city,
         'travelposts': travelposts,
+        'image': city_image,
     }
     return render(request, 'city/show.html', context)
 
+def index_city(request):
+    cities = City.objects.all()
+    context = {
+        'cities': cities,
+    }
+    return render(request, 'city/index.html', context)
