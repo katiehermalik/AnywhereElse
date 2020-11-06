@@ -1,9 +1,9 @@
 
 
 
-Anywhere. Else. is an application where the user can sign up and create a profile with an image.
+Anywhere. Else. is an application where the user can sign up and create a profile.
 
-From the profile page the user can edit their profile, or they can add a new travel post with an image.
+From the profile page the user can edit their profile, or they can add a new travel post with an image and caption.
 
 When a user creates a travel post it is added to an index in their location. Users can 'travel' to different cities and view posts from other users within that city. The user can like other users' posts. 
 
