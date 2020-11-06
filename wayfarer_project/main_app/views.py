@@ -34,8 +34,8 @@ def signup(request):
                 new_form.image = request.FILES['image']
             new_form.save()
             login(request, user)
-            mail = send_mail('Welcome to Wayfarer',
-                'Thanks for signing up! Please enjoy the app!',
+            mail = send_mail('Welcome to Anywhere. Else.',
+                'Thanks for signing up! Please enjoy the app! \n \n Let\'s go!',
                 'sei98.wayfarer.project@gmail.com',
                 [user.email])
             return redirect('profile', user_id=user.id)
@@ -158,8 +158,9 @@ def travelpost_new(request, city_id):
             new_form.image = request.FILES['image']
             new_form.author_id = profile.id
             if city_id > 0:
+                city_id = new_form.city.id
                 new_form.city_id = city_id
-                new_form.save()
+            new_form.save()
             return redirect('show_city', new_form.city_id)
     else:
         if city_id > 0:
