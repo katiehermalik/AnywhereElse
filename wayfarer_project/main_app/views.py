@@ -90,6 +90,7 @@ def profile_home(request):
     return redirect('profile', user_id=current_user.id)
 
 # --------------------------------------- POSTS
+@login_required
 def travelpost_show(request, travelpost_id):
     profile = Profile.objects.get(user_id = request.user.id)
     travelpost = TravelPost.objects.get(id=travelpost_id)
@@ -186,6 +187,7 @@ def travelpost_delete(request, travelpost_id):
 
 # --------------------------------------- CITIES
 
+@login_required
 def show_city(request, city_id):
     city = City.objects.get(id=city_id)
     travelposts = TravelPost.objects.filter(city_id=city_id)
@@ -201,6 +203,7 @@ def show_city(request, city_id):
     }
     return render(request, 'city/show.html', context)
 
+@login_required
 def index_city(request):
     cities = City.objects.all()
     context = {

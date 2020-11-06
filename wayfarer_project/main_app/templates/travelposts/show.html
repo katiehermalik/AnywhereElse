@@ -1,11 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <div class="post-page">
   <h4>{{ travelpost.title }}</h4>
+  <img src="/images/{{travelpost.image}}" />
   <a href="{% url 'show_city' travelpost.city_id %}">
   <h5><i class="fas fa-map-marker-alt"></i> {{ travelpost.city }}</h5>
   </a>
   <a href="{% url 'profile' travelpost.author.user_id %}"><h5>
-  <i class="far fa-user"></i> {{ travelpost.author }}</h5></a>
+  <i class="fas fa-pencil-alt"></i> {{ travelpost.author }}</h5></a>
   <h5>{{ travelpost.date }}</h5>
   <h5 style="display: inline">{{ travelpost.likes }}</h5>
   {% if liked %}
@@ -14,7 +15,6 @@
   <a href="{% url 'like' travelpost.id %}"><i class="far fa-heart"></i></a>
   {% endif %}
   <hr />
-  <img src="/images/{{travelpost.image}}" />
   <p>{{ travelpost.body }}</p>
   {% if user.id == travelpost.author.user_id %}
   <a class="button" href="{% url 'travelpost_edit' travelpost.id %}">Edit Post</a>

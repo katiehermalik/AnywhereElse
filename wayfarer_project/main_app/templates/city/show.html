@@ -1,9 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="post-page">
-  <h4>{{ city.name }}</h4>
   <img src="{{ city.image }}" alt="{{city.name}}" />
+  <h4>{{ city.name }}</h4>
   <br/>
+  <hr/>
   <a href="{% url 'travelpost_new' city.id %}" class="button">New Post</a>
   {% for post in travelposts %}
   <a href="{% url 'travelpost_show' post.id %}">
