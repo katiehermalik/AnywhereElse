@@ -1,12 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% block content %}
+<div class="post-page">
   <h1>Edit Post</h1>
-
-  {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
-
+  {% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+  {% endif %}
   <form action="{% url 'travelpost_edit' travelpost_id %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="button" value="Submit">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" class="button" value="Submit" />
   </form>
+<div>
 {% endblock %}
