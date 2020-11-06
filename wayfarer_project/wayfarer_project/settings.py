@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import django_on_heroku
+# import django_on_heroku
 
 from django.shortcuts import redirect
 from django.urls.conf import path
@@ -142,4 +142,4 @@ MEDIA_URL = '/images/'
 # ]
 MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 
-django_on_heroku.settings(locals())
+# django_on_heroku.settings(locals())
