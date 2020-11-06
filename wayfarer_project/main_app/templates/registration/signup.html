@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="post-page">
   <h1>Sign up</h1>
 
   {% if error_message %}<p class="red-text error-list">{{ error_message }}</p>{% endif %}
@@ -11,4 +12,5 @@
     {{ sub_form.as_p }}
     <input type="submit" class="button" value="Sign Up">
   </form>
+</div>
 {% endblock %}
