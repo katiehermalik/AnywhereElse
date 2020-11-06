@@ -1,33 +1,23 @@
-{% extends 'base.html' %}
-
+{% extends 'base.html' %} 
 {% block content %}
 <div class="post-page">
-  <h3 class="post-title"><i class="fas fa-pencil-alt"></i> {{ travelpost.title }}</h3>
+  <h4>{{ travelpost.title }}</h4>
   <a href="{% url 'show_city' travelpost.city_id %}"><h5><i class="fas fa-map-marker-alt"></i> {{ travelpost.city }}</h5></a>
   <a href="{% url 'profile' travelpost.author.user_id %}"><h5><i class="far fa-user"></i> {{ travelpost.author }}</h5></a>
-
-  
-  <hr />
-
   <h5>{{ travelpost.date }}</h5>
-  <div class="likes">
-    <p>
+    <h5 style="display:inline">{{ travelpost.likes }}</h5> 
     {% if liked %}
-      <a href="{% url 'like' travelpost.id %}"><i class="fas fa-heart"></i></a>
+    <a href="{% url 'like' travelpost.id %}"><i class="fas fa-heart"></i></a>
     {% else %}
       <a href="{% url 'like' travelpost.id %}"><i class="far fa-heart"></i></a>
     {% endif %}
-    <br/>
-    {{ travelpost.likes }}
-    </p>
-  </div>
-  <img src="{{ travelpost.image }}" alt="">
-  <p>{{ travelpost.body }}</p>
-  {% if user.id == travelpost.author.user_id %}
-    <a class="button" href="{% url 'travelpost_edit' travelpost.id %}">Edit Post</a>
-    <a class="button" href="{% url 'travelpost_delete' travelpost.id %}" onclick="return confirm('Are you sure you want to delete post?');">Delete Post</a>
-  {% endif %}
-  </div>
-{% endblock %}
+    <hr />
+    <img src="/images/{{travelpost.image}}">
+    <p>{{ travelpost.body }}</p>
+    {% if user.id == travelpost.author.user_id %}
+      <a class="button" href="{% url 'travelpost_edit' travelpost.id %}">Edit Post</a>
+      <a class="button" href="{% url 'travelpost_delete' travelpost.id %}" onclick="return confirm('Are you sure you want to delete post?');">Delete Post</a>
+    {% endif %}
 
-{{ travelpost.city }}
+    {% endblock %}
+</div>
