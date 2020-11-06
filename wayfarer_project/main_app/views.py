@@ -26,7 +26,7 @@ def signup(request):
             user = form.save()
             new_form = sub_form.save(commit=False)
             new_form.user_id = user.id
-            if new_form.image:
+            if request.FILES:
                 new_form.image = request.FILES['image']
             new_form.save()
             login(request, user)
