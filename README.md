@@ -1,3 +1,11 @@
+Technologies used: Python, Django, Pillow, Skeleton, JavaScript
+
+
+Collaborators: Brendan Howe, Katie Hermalik, Josh Sanford, Morgan Jaouni
+
+
+
+
 ![](https://files.slack.com/files-pri/T0351JZQ0-F01E3NP7NBT/copy_of_wayfarer_project_erd.png)
 
 

@@ -19,6 +19,7 @@
   <br/>
   <h4><i class="fas fa-pencil-alt"></i> by {{profile.name}}:</h4>
     <div class="m-right-panel m-page scene_element scene_element--fadeinright">
+
     <ul>
       {% for post in travelposts %}
       <a href="{% url 'travelpost_show' post.id %}" class="blog-post">{{ post.title }}</a>
