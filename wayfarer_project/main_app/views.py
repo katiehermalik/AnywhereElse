@@ -1,4 +1,4 @@
-from django.http import request
+from django.http import request, HttpResponse
 from django.template import context
 from main_app.models import City, Like, Profile, TravelPost
 from main_app.forms import CityPostForm, PostForm, ProfileForm, SignUpForm
@@ -7,10 +7,14 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import authenticate
 
+
 # --------------------------------------- AUTH IMPORTS
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+
+# ----------------------------------------- EMAIL IMPORTS
+from django.core.mail import send_mail
 
 # --------------------------------------- INDEX
 def index(request):
@@ -30,6 +34,10 @@ def signup(request):
                 new_form.image = request.FILES['image']
             new_form.save()
             login(request, user)
+            mail = send_mail('Welcome to Wayfarer',
+                'Thanks for signing up! Please enjoy the app!',
+                'sei98.wayfarer.project@gmail.com',
+                [user.email])
             return redirect('profile', user_id=user.id)
         else:
             error_message = form.non_field_errors
@@ -145,8 +153,12 @@ def travelpost_new(request, city_id):
 
         if form.is_valid():
             new_form = form.save(commit=False)
+            if request.FILES:
+                new_form.image = request.FILES['image']
+            new_form.image = request.FILES['image']
             new_form.author_id = profile.id
             if city_id > 0:
+                city_id = new_form.city_id
                 new_form.city_id = city_id
             new_form.save()
             return redirect('show_city', new_form.city_id)
@@ -184,5 +196,4 @@ def show_city(request, city_id):
         'travelposts': travelposts,
     }
     return render(request, 'city/show.html', context)
-
 
