@@ -104,14 +104,14 @@ img {
 }
 .logo {
 	max-width: 300px;
-	margin: 0 auto;
+	margin: 100px auto;
 	box-shadow: none;
 }
 .icon {
 	max-width: 35px;
 	border-radius: 50px;
 	max-height: 35px;
-	margin: 0;
+	margin: 5px 0;
 	margin-left: 15px;
 }
 .container {
