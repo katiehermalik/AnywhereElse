@@ -153,11 +153,7 @@ def travelpost_new(request, city_id):
             new_form.image = request.FILES['image']
             new_form.author_id = profile.id
             if city_id > 0:
-<<<<<<< HEAD
-                city_id = new_form.city_id
-=======
                 city_id = new_form.city.id
->>>>>>> katie
                 new_form.city_id = city_id
             new_form.save()
             return redirect('show_city', new_form.city_id)

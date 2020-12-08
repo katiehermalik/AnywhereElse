@@ -1,20 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="post-page">
-<<<<<<< HEAD
-  {% if travelposts %}
-  <img src="/images/{{ image }}" alt="{{city.name}}" />
-  {% else %}
-  <img src="{{ image }}" alt="{{city.name}}" />
-  {% endif %}
-  <br>
-  <h1>{{ city.name }}</h1>
-  <hr>
-  <a href="{% url 'travelpost_new' city.id %}" class="button">New Post</a>
-  {% for post in travelposts %}
-  <a href="{% url 'travelpost_show' post.id %}">
-    <h3>{{ post.title }}</h3>
-=======
   <img src="{{ city.image }}" alt="{{city.name}}" />
   <h4>{{ city.name }}</h4>
   <br/>
@@ -23,7 +9,6 @@
   {% for post in travelposts %}
   <a href="{% url 'travelpost_show' post.id %}">
     <h5>{{ post.title }}</h5>
->>>>>>> katie
   </a>
   <h5>{{ post.date }}</h5>
   <p class="post_body">
@@ -32,10 +17,6 @@
       >View More</a>
   </p>
   {% endfor %}
-<<<<<<< HEAD
-
-=======
->>>>>>> katie
   <script>
     var pEl = document.querySelectorAll(".post_body");
     var moreEl = document.getElementsByClassName("view_more");
@@ -46,8 +27,4 @@
     }
   </script>
 </div>
-<<<<<<< HEAD
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> katie
