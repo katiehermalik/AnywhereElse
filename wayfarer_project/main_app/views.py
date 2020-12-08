@@ -35,10 +35,6 @@ def signup(request):
                 new_form.image = request.FILES['image']
             new_form.save()
             login(request, user)
-            mail = send_mail('Welcome to Anywhere. Else.',
-                'Thanks for signing up! Please enjoy the app! \n \n let\'s go!!!',
-                'sei98.wayfarer.project@gmail.com',
-                [user.email])
             return redirect('profile', user_id=user.id)
         else:
             error_message = form.non_field_errors
@@ -90,6 +86,7 @@ def profile_home(request):
     return redirect('profile', user_id=current_user.id)
 
 # --------------------------------------- POSTS
+@login_required
 def travelpost_show(request, travelpost_id):
     profile = Profile.objects.get(user_id = request.user.id)
     travelpost = TravelPost.objects.get(id=travelpost_id)
@@ -156,7 +153,11 @@ def travelpost_new(request, city_id):
             new_form.image = request.FILES['image']
             new_form.author_id = profile.id
             if city_id > 0:
+<<<<<<< HEAD
                 city_id = new_form.city_id
+=======
+                city_id = new_form.city.id
+>>>>>>> katie
                 new_form.city_id = city_id
             new_form.save()
             return redirect('show_city', new_form.city_id)
@@ -186,6 +187,7 @@ def travelpost_delete(request, travelpost_id):
 
 # --------------------------------------- CITIES
 
+@login_required
 def show_city(request, city_id):
     city = City.objects.get(id=city_id)
     travelposts = TravelPost.objects.filter(city_id=city_id)
@@ -201,6 +203,7 @@ def show_city(request, city_id):
     }
     return render(request, 'city/show.html', context)
 
+@login_required
 def index_city(request):
     cities = City.objects.all()
     context = {

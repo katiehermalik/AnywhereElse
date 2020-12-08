@@ -1,11 +1,20 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="post-page">
+<<<<<<< HEAD
 <h1>Login</h1>
 <form action="{% url 'login' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <input type="hidden" name="next" id="{{next}}" />
   <input type="submit" class="btn" value="Login" />
 </form>
+=======
+  <h1>Login</h1>
+  <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="hidden" name="next" id="{{next}}" />
+    <input type="submit" class="btn" value="Login" />
+  </form>
+>>>>>>> katie
 </div>
 {% endblock %}

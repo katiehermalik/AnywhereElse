@@ -1,7 +1,3 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/django,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=django,python
-
 ### Django ###
 *.log
 *.pot
@@ -210,5 +206,3 @@ dmypy.json
 # pytype static type analyzer
 
 # profiling data
-
-# End of https://www.toptal.com/developers/gitignore/api/django,python
