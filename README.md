@@ -77,7 +77,6 @@ A user is authorized to perform certain actions on the site, according to the fo
 
 ## Technologies
 * Python
-* JavaScript
 * Django
 * Pillow
 * Skeleton
