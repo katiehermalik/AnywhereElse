@@ -52,7 +52,7 @@
 
 ### **Sprint 3: Validations & Authorization**
 
-**A user should be able to:**
+**Users are able to:**
 
 1. Verify that a new post they create is successfully published on the correct city page.
 
