@@ -1,1 +1,1 @@
-web: gunicorn wayfarer_project/wayfarer_project.wsgi
+web: gunicorn --pythonpath wayfarer_project wayfarer_project.wsgi
