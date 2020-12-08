@@ -6,7 +6,7 @@
     url('../fonts/icomoon.woff') format('woff'),
     url('../fonts/icomoon.ttf') format('truetype'),
     url('../fonts/icomoon.svg#icomoon') format('svg');
-  font-weight: normal;
+	font-weight: normal;
   font-style: normal;
 }
 * {
@@ -48,6 +48,15 @@ header {
   box-shadow: 0 0 25px 0 black;
   z-index: 1;
 }
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0 black;
+}
+
 a {
   color: #DC7364;
   text-decoration: none;
@@ -55,7 +64,7 @@ a {
   letter-spacing: 2px;
   padding: 10 5px;
   margin: 5px;
-  text-transform: uppercase;
+	text-transform: uppercase;
   font-size: 14px;
   position: relative;
   top: 5px;
@@ -72,7 +81,6 @@ a:hover {
   background-color: rgba(17, 16, 16, 0.4);
   color: #F0D5C0;
   width: 140px;
-
 }
 .navbar {
   max-height: 60px;
@@ -88,68 +96,66 @@ a:hover {
   float: right;
 }
 img {
-  max-width: 300px;
+	max-width: 300px;
   max-height: 300px;
   display: inline-block;
   border-radius: 8px;
   box-shadow: 0 0 10px 0 black;
 }
 .logo {
-  max-width: 300px;
-  margin: 0 auto;
-  box-shadow: none;
+	max-width: 300px;
+	margin: 100px auto;
+	box-shadow: none;
 }
 .icon {
-  max-width: 35px;
-  border-radius: 50px;
-  max-height: 35px;
-  margin: 0;
-  margin-left: 15px;
+	max-width: 35px;
+	border-radius: 50px;
+	max-height: 35px;
+	margin: 5px 0;
+	margin-left: 15px;
 }
 .container {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
   margin: 5px 10px;
   padding: 5px;
   max-width: 60%;
-  height: 100%;
-  margin: auto;
+	height: 100%;
+	margin: auto;
 }
 .post-page {
-  /* display: inline-block; */
-  /* justify-content: center; */
+	display: inline-block;
 }
 h1 {
-  color: #F0D5C0;
-  text-decoration: none;
+	color: #F0D5C0;
+	text-decoration: none;
 }
 h3, h4, h5 {
-  color: #F0D5C0;
-  text-decoration: none;
+	color: #F0D5C0;
+	text-decoration: none;
 }
 h6 {
-  color: #DC7364;
+	color: #DC7364;
 }
 p {
-  font-size: 16px;
-  font-weight: bold;
-  color: #DC7364;
+	font-size: 16px;
+	font-weight: bold;
+	color: #DC7364;
 }
 .link {
-  font-size: 18px;
-  color: #F0D5C0;
+	font-size: 18px;
+	color: #F0D5C0;
 }
 .link:hover {
-  color: #DC7364;
-  cursor: pointer;
+	color: #DC7364;
+	cursor: pointer;
 }
 /* ERROR MESSAGE */
 .errorlist {
-  color: rgb(172, 16, 16);
-  background: #F0D5C0;
-  font-size: 16px;
-  text-decoration: none;
-  padding: 3px;
-  border-radius: 8px;
+	color: rgb(172, 16, 16);
+	background: #F0D5C0;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 3px;
+	border-radius: 8px;
 }
-

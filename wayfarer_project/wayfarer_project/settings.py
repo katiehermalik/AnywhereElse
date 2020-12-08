@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import django_on_heroku
+# import django_on_heroku
 
 from django.shortcuts import redirect
 from django.urls.conf import path
@@ -130,17 +130,10 @@ STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL ='/'
 LOGOUT_REDIRECT_URL = '/'
 
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'sei98.wayfarer.project@gmail.com'
-EMAIL_HOST_PASSWORD = '123sei456'
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/images/'
 # ]
 MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 
-django_on_heroku.settings(locals())
+# django_on_heroku.settings(locals())
