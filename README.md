@@ -2,6 +2,12 @@
 
 "Anywhere. Else." was built by a team of 4 developers who were commissioned to build a travel community for users to share posts about their favorite locations around the world.
 
+## Index
+- [User Stories](#user-stories)
+- [ERD](#erd)
+- [Collaborators](#collaborators)
+- [Technologies](#technologies)
+
 ## **User Stories**
 ### **Sprint 1: Basic Auth & Profiles**
 **Users are able to:**
@@ -67,7 +73,9 @@ A user is authorized to perform certain actions on the site, according to the fo
 5. A user MUST be logged in to create/update/destroy resources.
 6. A user may only edit their own profile and edit/delete their own posts.
 
+## ERD
 
+![image](wayfarer_project/main_app/static/images/erd.png)
 
 ## Collaborators
 * Katie Hermalik
