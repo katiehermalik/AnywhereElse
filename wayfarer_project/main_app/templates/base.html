@@ -16,11 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   </head>
   <body>
-    <header>
       <nav class="navbar">
         <div class="topnav-right">
-          <a href="{% url 'index' %}"><img class="nav-button icon" src="{% static 'images/AnywhereElseIcon.png' %}"/></a>
           {% if user.is_authenticated %}
+          {% comment %} <a href="{% url 'index' %}"><img class="nav-button icon" src="{% static 'images/AnywhereElseIcon.png' %}"/></a> {% endcomment %}
           <a href="{% url 'index_city' %}" class="nav-button">Cities</a>
           <a href="{% url 'profile' user.id %}" class="nav-button">Profile</a>
           <a href="{% url 'logout' %}" class="nav-button">Logout</a>
@@ -30,7 +29,10 @@
           {% endif %}
         </div>
       </nav>
-    </header>
+      {% if request.path != '/' %}
+      <div class="navbar-background">
+      </div>
+      {% endif %}
     <main class="container">
 
       {% block content %}
