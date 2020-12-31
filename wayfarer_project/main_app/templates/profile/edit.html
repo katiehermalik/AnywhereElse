@@ -2,10 +2,20 @@
 {% block content %}
 <div class="post-page">
   <h1>Edit Profile</h1>
-
   <form class="form-fields" enctype="multipart/form-data" method="POST">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.city.errors }}
+        <label class="form-label" for="{{ form.city.id_for_label }}">City</label>
+        {{ form.city }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.image.errors }}
+        <label class="form-label" for="{{ form.image.id_for_label }}">Image</label>
+        {{ form.image }}
+    </div>
     <button class="btn" type="submit">Update</button>
-  </form>
+  </form> 
 </div>
 {% endblock %}

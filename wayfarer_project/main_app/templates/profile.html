@@ -7,17 +7,19 @@
     {% endif %}
     <br/>
     <br/>
-    <h4><i class="far fa-user"></i> {{profile.name}}</h4>
+    <h4><i class="far fa-user"></i> {{profile.user.username}}</h4>
+    {% if profile.city != None %}
     <h4><i class="fas fa-map-marker-alt"></i> {{profile.city}}</h4>
+    {% endif %}
     <h6>Joined {{profile.join_date}}</h6>
     {% if user.id == profile.user.id %}
-    <a href="{% url 'edit_profile' user.id %}" class="button">Edit</a>
+    <a href="{% url 'edit_profile' user.id %}" class="button">Edit Profile</a>
     <a href="{% url 'travelpost_new' 0 %}" class="button">Add A Post</a>
     {% endif %}
     <hr />
   </div>
   <br/>
-  <h4><i class="fas fa-pencil-alt"></i> by {{profile.name}}:</h4>
+  <h4><i class="fas fa-pencil-alt"></i> by {{profile.user.username}}:</h4>
     <div class="m-right-panel m-page scene_element scene_element--fadeinright">
     <ul>
       {% for post in travelposts %}

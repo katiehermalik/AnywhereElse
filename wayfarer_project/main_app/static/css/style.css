@@ -49,7 +49,7 @@ header img {
   width: 100%;
   overflow: hidden;
   top: -90px;
-  z-index: 1;
+  z-index: 3;
 
 }
 
@@ -88,8 +88,8 @@ a:hover {
   flex-direction: column;
 }
 .button, button, input[type="submit"], input[type="reset"], input[type="button"]{
-  background-color: rgba(17, 16, 16, 0.4);
-  color: #F0D5C0;
+  background-color: rgb(216, 216, 216);
+  color: rgb(35, 39, 46);
   width: 140px;
 }
 
@@ -101,7 +101,7 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   position: fixed;
-  z-index: 3;
+  z-index: 4;
 }
 
 .nav-button {
@@ -132,7 +132,7 @@ a:hover {
 .post-page {
   display: inline-block;
   height: 100%;
-  margin: 50px 60px 30px 60px;
+  margin: 30px 60px 30px 60px;
   max-width: 750px;
 }
 
@@ -142,7 +142,7 @@ a:hover {
   margin: 50px 60px 30px 60px;
   width: 750px;
 }
-h1 {
+/* h1 {
 	color: #F0D5C0;
 	text-decoration: none;
 }
@@ -152,18 +152,23 @@ h3, h4, h5 {
 }
 h6 {
 	color: #DC7364;
-}
+} */
 p {
 	font-size: 16px;
 	font-weight: bold;
-	color: #DC7364;
+	color: rgb(35, 39, 46);;
+}
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+	color: rgb(35, 39, 46);;
 }
 .link {
 	font-size: 18px;
-	color: #F0D5C0;
+	color: rgb(35, 39, 46);;
 }
 .link:hover {
-	color: #DC7364;
+	color: lightskyblue;
 	cursor: pointer;
 }
 /* ERROR MESSAGE */
