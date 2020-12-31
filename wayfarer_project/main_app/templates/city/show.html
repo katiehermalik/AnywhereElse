@@ -1,25 +1,25 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="post-page">
-  <img src="{{ city.image }}" alt="{{city.name}}" />
-  <h4>{{ city.name }}</h4>
+  <h1 class="city-name">{{ city.name }}</h1>
+  <img class="city-image" src="{{ city.image }}" alt="{{city.name}}" />
+  <a href="{% url 'travelpost_new' city.id %}" class="button new-post-btn">New Post</a>
   <br/>
-  <hr/>
-  <a href="{% url 'travelpost_new' city.id %}" class="button">New Post</a>
+  <hr class="header-hr"/>
   {% for post in travelposts %}
   <a href="{% url 'travelpost_show' post.id %}">
-    <h5>{{ post.title }}</h5>
+    <h3 class="city-post-title">{{ post.title }}</h3>
   </a>
-  <h5>{{ post.date }}</h5>
-  <p class="post_body">
+  <h5 class="post-date"> - {{ post.date }}</h5>
+  <p class="truncated-post-body">
     {{ post.body|truncatechars_html:1000 }}
-    <a href="{% url 'travelpost_show' post.id %}" class="view_more" display=""
-      >View More</a>
+    <a class="view-more" href="{% url 'travelpost_show' post.id %}">View More</a>
   </p>
+  <hr class="header-hr"/>
   {% endfor %}
   <script>
-    var pEl = document.querySelectorAll(".post_body");
-    var moreEl = document.getElementsByClassName("view_more");
+    var pEl = document.querySelectorAll(".truncated-post-body");
+    var moreEl = document.getElementsByClassName("view-more");
     for (let i = 0; i < pEl.length; i++) {
       if (pEl[i].innerText.length < 1000) {
         moreEl[i].style.display = "none";

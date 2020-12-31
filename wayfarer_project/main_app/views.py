@@ -155,7 +155,7 @@ def travelpost_new(request, city_id):
             if city_id > 0:
                 new_form.city_id = city_id
             new_form.save()
-            return redirect('show_city', new_form.city_id)
+            return redirect('travelpost_show', new_form.id)
     else:
         if city_id > 0:
             form = CityPostForm()

@@ -13,7 +13,7 @@ class Profile(models.Model):
     join_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 class City(models.Model):
