@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   </head>
   <body>
+      {% if request.path != '/' %}
       <nav class="navbar">
         <div class="topnav-right">
           {% if user.is_authenticated %}
-          <a href="{% url 'index' %}" class="nav-button">Home</a>
+          {% comment %} <a href="{% url 'index' %}" class="nav-button">Home</a> {% endcomment %}
           <a href="{% url 'logout' %}" class="nav-button">Logout</a>
           <a href="{% url 'profile' user.id %}" class="nav-button">Profile</a>
           <a href="{% url 'index_city' %}" class="nav-button">Cities</a>
@@ -29,9 +30,19 @@
           {% endif %}
         </div>
       </nav>
-      {% if request.path != '/' %}
-      <div class="navbar-background">
-      </div>
+      {% else %}
+      <nav class="home-navbar">
+        <div class="topnav-right">
+          {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}" class="nav-button">Logout</a>
+          <a href="{% url 'profile' user.id %}" class="nav-button">Profile</a>
+          <a href="{% url 'index_city' %}" class="nav-button">Cities</a>
+          {% else %}
+          <a href="{% url 'login' %}" class="nav-button">Login</a>
+          <a href="{% url 'signup' %}" class="nav-button">Sign Up</a>
+          {% endif %}
+        </div>
+      </nav>
       {% endif %}
     <main class="container">
 

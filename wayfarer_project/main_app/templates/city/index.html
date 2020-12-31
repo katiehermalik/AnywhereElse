@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <div class="post-page">
   <h1>Anywhere. Else.</h1>
+  <hr class="header-hr"/>
   <ul style="list-style: none">
   {% for city in cities %}
-    <li>
-    <a href="{% url 'show_city' city.id %}">{{ city.name }}</a>
+    <li class="city-list">
+    <a class="city-list-item" href="{% url 'show_city' city.id %}">{{ city.name }}</a>
     </li>
   {% endfor %}
   </ul>

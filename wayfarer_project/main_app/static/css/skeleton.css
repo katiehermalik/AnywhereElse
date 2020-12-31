@@ -122,9 +122,9 @@ html {
   font-size: 62.5%; }
 body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
-  line-height: 1.6;
+  line-height: 2.0;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: myriad-pro, sans-serif;
   color: #222; }
 
 
@@ -372,9 +372,15 @@ form {
 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-hr {
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
+.list-hr {
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+
+.header-hr {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 
