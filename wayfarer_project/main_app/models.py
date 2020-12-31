@@ -5,9 +5,9 @@ from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class Profile(models.Model):
-    name = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    age = models.DateField(format("Birth Date:"), auto_now=False, auto_now_add=False)
+    name = models.CharField(max_length=100, null=True, blank=True)
+    city = models.CharField(max_length=100, null=True, blank=True)
+    age = models.DateField(format("Birth Date:"), auto_now=False, auto_now_add=False, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to = '')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     join_date = models.DateField(auto_now_add=True)
