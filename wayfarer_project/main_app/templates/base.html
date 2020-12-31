@@ -18,19 +18,8 @@
   <body>
       {% if request.path != '/' %}
       <nav class="navbar">
-        <div class="topnav-right">
-          {% if user.is_authenticated %}
-          {% comment %} <a href="{% url 'index' %}" class="nav-button">Home</a> {% endcomment %}
-          <a href="{% url 'logout' %}" class="nav-button">Logout</a>
-          <a href="{% url 'profile' user.id %}" class="nav-button">Profile</a>
-          <a href="{% url 'index_city' %}" class="nav-button">Cities</a>
-          {% else %}
-          <a href="{% url 'login' %}" class="nav-button">Login</a>
-          <a href="{% url 'signup' %}" class="nav-button">Sign Up</a>
-          {% endif %}
-        </div>
       </nav>
-      {% else %}
+      {% endif %}
       <nav class="home-navbar">
         <div class="topnav-right">
           {% if user.is_authenticated %}
@@ -43,13 +32,11 @@
           {% endif %}
         </div>
       </nav>
-      {% endif %}
     <main class="container">
 
-      {% block content %}
-      
+      {% block content %} 
       {% endblock %}
-    
+
     </main>
   </body>
 </html>
