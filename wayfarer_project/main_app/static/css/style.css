@@ -51,14 +51,15 @@ header img {
   display: inline-block;
   height: 100%;
   margin: 300px 20px 30px 20px;
-  width: 750px;
+  width: 500px;
 }
 
 .title {
   color: rgb(35, 39, 46);
   font-size: 16vmin;
   height: 23vmin;
-  margin: 30vh 150px 0 180px;
+  margin-top: 30vh;
+  text-align: center;
 }
 
 img {
@@ -178,12 +179,23 @@ a:hover {
   display:block;
 }
 
+
+.landing-page {
+  background-image: url('../images/SiteBackground-01.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 100%;
+}
 /* ----------------------------------------------------- User Profile */
 
 .user-info-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: flex-end;
   justify-content: space-between;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -195,7 +207,13 @@ a:hover {
 }
 
 .user-info {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .username {
@@ -213,30 +231,35 @@ a:hover {
 }
 
 .profile-button {
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 /* --------------------------------------------------- City Show Page */
+
 .city-name {
   text-align: center;
   font-weight: 300;
   margin-bottom: 30px;
   text-transform: uppercase;
 }
+
 .city-image {
   display: block;
   margin: 0 auto;
   max-width: 100%;
   max-height: 400px;
 }
+
 .new-post-btn {
   display: block;
   margin: 30px auto 0;
 }
+
 .city-post-title {
   display: inline-block;
   text-transform: uppercase;
 }
+
 .post-date {
   display: inline-block;
   vertical-align: middle;
@@ -327,24 +350,41 @@ a:hover {
   }
 
   .user-info-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    justify-content: space-between;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .user-info {
+    display: block;
   }
 
   .profile-pic {
-    width: 100%;
+    max-width: 100%;
   }
 
   .username {
     text-transform: uppercase;
     margin-top: none;
+  }
+
+  .header-hr {
+    margin: 20px 0;
+  }
+
+  .post-page {
+    margin-top: 200px;
+  }
+
+  .m-scene {
+    margin-top: 200px;
+    text-align: center;
+  }
+
+  .title {
+    color: rgb(35, 39, 46);
+    font-size: 16vmin;
+    height: 23vmin;
+    margin: 40vh 15px 0 15px;
+    text-align: center;
   }
 }
