@@ -2,7 +2,7 @@
 <div class="post-page">
   <h1 class="post-title">{{ travelpost.title }}</h1>
   {% if travelpost.image %}
-  <img class="city-image" src="/images/{{travelpost.image}}" />
+  <img class="city-image" src={{travelpost.image.url}} />
   {% endif %}
   <div class="post-place">
     <div class="likes">

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -8,7 +9,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=100, null=True, blank=True)
     age = models.DateField(format("Birth Date:"), auto_now=False, auto_now_add=False, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, upload_to = '')
+    image = CloudinaryField(null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     join_date = models.DateField(auto_now_add=True)
 
@@ -30,7 +31,7 @@ class TravelPost(models.Model):
     likes = models.IntegerField(default=0)
     body = models.TextField()
     title = models.CharField(max_length=200)
-    image = models.ImageField(null=True, blank=True, upload_to = '')
+    image = CloudinaryField(null=True, blank=True)
 
     def __str__(self):
         return self.title

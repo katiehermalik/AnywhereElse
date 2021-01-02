@@ -4,7 +4,7 @@
   <div class="m-aside scene_element scene_element--fadein">
     <div class="user-info-container">
       {% if  profile.image %}
-      <img class="profile-pic" src="/images/{{profile.image}}">
+      <img class="profile-pic" src={{profile.image.url}}>
       {% endif %}
       <div class="user-info">
         <h4 class="username"><i class="far fa-user"></i> {{profile.user.username}}</h4>
